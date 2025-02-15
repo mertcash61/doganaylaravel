@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Paketleri Yönetimi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Varsayılan tema -->
+    <link id="theme-stylesheet" rel="stylesheet" href="themes/light-theme.css">
+    <script src="theme-manager.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/logo.png" alt="Veri Paketleri Logo" class="logo-img">
+                    <span>Veri Paketleri</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    Ana Sayfa
+                </a></li>
+                <li><a href="#upload" class="nav-item">
+                    <i class="fas fa-upload"></i>
+                    Paket Yükle
+                </a></li>
+                <li><a href="#packages" class="nav-item">
+                    <i class="fas fa-box"></i>
+                    Paketlerim
+                </a></li>
+                <li><a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Ayarlar
+                </a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <div class="icon"></div>
+                </button>
+                <div class="user-menu">
+                    <img src="assets/avatar.png" alt="Kullanıcı" class="user-avatar">
+                    <span class="user-name">Kullanıcı</span>
+                </div>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="upload" class="upload-section">
+            <h2>Veri Paketi Yükle</h2>
+            <div class="upload-container">
+                <div class="upload-box" id="dropZone">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt">📤</i>
+                    </div>
+                    <div class="upload-text">
+                        <h3>Dosyaları Yükle</h3>
+                        <p>Dosyaları sürükleyip bırakın veya</p>
+                        <input type="file" id="fileInput" multiple accept=".sql,.js,.ts,.cs,.java">
+                        <button class="browse-btn">
+                            <span class="icon">📎</span>
+                            Dosya Seç
+                        </button>
+                    </div>
+                    <div class="upload-formats">
+                        <p>Desteklenen formatlar:</p>
+                        <div class="format-tags">
+                            <div class="format-row">
+                                <span class="format-tag sql">SQL</span>
+                                <span class="format-tag js">JavaScript</span>
+                                <span class="format-tag ts">TypeScript</span>
+                                <span class="format-tag cs">C#</span>
+                            </div>
+                            <div class="format-row">
+                                <span class="format-tag cpp">C++</span>
+                                <span class="format-tag c">C</span>
+                                <span class="format-tag java">Java</span>
+                                <span class="format-tag pas">Pascal</span>
+                            </div>
+                            <div class="format-row">
+                                <span class="format-tag bas">Basic</span>
+                                <span class="format-tag cbl">Cobol</span>
+                                <span class="format-tag pl">Perl</span>
+                                <span class="format-tag php">PHP</span>
+                            </div>
+                            <div class="format-row">
+                                <span class="format-tag py">Python</span>
+                                <span class="format-tag ada">Ada</span>
+                                <span class="format-tag f">Fortran</span>
+                                <span class="format-tag dpr">Delphi</span>
+                                <span class="format-tag swift">Swift</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="file-list" id="fileList">
+                    <h3>Yüklenen Dosyalar</h3>
+                    <div class="file-list-header">
+                        <span>Dosya Adı</span>
+                        <span>Boyut</span>
+                        <span>Durum</span>
+                        <span>İşlem</span>
+                    </div>
+                    <ul id="uploadedFiles"></ul>
+                </div>
+            </div>
+            <div class="upload-stats">
+                <div class="storage-info">
+                    <h4>Depolama Durumu</h4>
+                    <div class="progress-bar">
+                        <div class="progress" id="storageProgress"></div>
+                    </div>
+                    <div class="storage-text">
+                        <span id="usedStorage">0 GB</span> / <span id="totalStorage">1 TB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="packages" class="packages-section">
+            <h2>Paketlerim</h2>
+            <div class="package-grid" id="packageGrid">
+                <!-- Paketler JavaScript ile doldurulacak -->
+                <script src="script.js"></script>
+            </div>
+        </section>
+
+        <section id="settings" class="settings-section">
+            <h2>Ayarlar</h2>
+            <div class="settings-container">
+                <div class="settings-card">
+                    <h3>Genel Ayarlar</h3>
+                    <div class="setting-item">
+                        <label>Otomatik Yedekleme</label>
+                        <label class="switch">
+                            <input type="checkbox" id="autoBackup">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Karanlık Mod</label>
+                        <label class="switch">
+                            <input type="checkbox" id="darkMode">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Depolama Ayarları</h3>
+                    <div class="setting-item">
+                        <label>Depolama Limiti</label>
+                        <select id="storageLimit">
+                            <option value="1">1 GB</option>
+                            <option value="10">10 GB</option>
+                            <option value="100">100 GB</option>
+                            <option value="250">250 GB</option>
+                            <option value="500">500 GB</option>
+                            <option value="1024">1 TB</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Otomatik Temizleme</label>
+                        <label class="switch">
+                            <input type="checkbox" id="autoClean">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Bildirim Ayarları</h3>
+                    <div class="setting-item">
+                        <label>E-posta Bildirimleri</label>
+                        <label class="switch">
+                            <input type="checkbox" id="emailNotif">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Masaüstü Bildirimleri</label>
+                        <label class="switch">
+                            <input type="checkbox" id="desktopNotif">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-actions">
+                <button class="save-btn" onclick="saveSettings()">Kaydet</button>
+                <button class="reset-btn" onclick="resetSettings()">Varsayılana Dön</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

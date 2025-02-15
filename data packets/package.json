@@ -1,0 +1,26 @@
+{
+  "name": "modern-navbar",
+  "version": "1.0.0",
+  "description": "Modern responsive navbar uygulaması",
+  "main": "script.js",
+  "scripts": {
+    "start": "live-server",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "dependencies": {
+    "core-js": "^3.30.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "live-server": "^1.2.2",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.2"
+  }
+}
